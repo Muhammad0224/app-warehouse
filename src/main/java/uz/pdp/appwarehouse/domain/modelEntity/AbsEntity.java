@@ -1,9 +1,6 @@
 package uz.pdp.appwarehouse.domain.modelEntity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -17,9 +14,9 @@ public abstract class AbsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(unique = true)
     private String name;
 
     @Column
-    private Boolean active=true;
+    private Boolean active = true;
 }

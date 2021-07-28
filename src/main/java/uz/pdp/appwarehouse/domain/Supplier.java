@@ -8,11 +8,16 @@ import javax.persistence.Entity;
 
 @Setter
 @Getter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 public class Supplier extends AbsEntity {
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String phoneNumber;
+
+    @Builder(builderMethodName = "childBuilder")
+    public Supplier(Long id, String name, String phoneNumber) {
+        super(id, name, true);
+        this.phoneNumber = phoneNumber;
+    }
 }
